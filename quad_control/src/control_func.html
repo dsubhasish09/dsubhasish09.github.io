@@ -1,0 +1,2600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>src.control_func API documentation</title>
+<meta name="description" content="Created on Fri Jul 30 15:22:56 2021 …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.control_func</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Fri Jul 30 15:22:56 2021</p>
+<p>@author: dsubhasish</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+&#34;&#34;&#34;
+Created on Fri Jul 30 15:22:56 2021
+
+@author: dsubhasish
+&#34;&#34;&#34;
+
+import numpy as np#numpy
+# cimport numpy as np
+import rospy#for interfacing with ROS
+from urdf_parser_py.urdf import URDF#to use URDF from ROS Parameter Server
+from tf.transformations import *#to convert orientations between various conventions
+import pickle
+import time
+from typing import Tuple
+
+# some functions which will be used frequently
+sin=np.sin
+cos=np.cos
+pi=np.pi
+inv=np.linalg.inv#inverse
+pinv=np.linalg.pinv
+
+def tilda(p:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;Returns the 3x3 skew-symmetric matix corresponding to the cross-product
+    operation for a given 3x1 vector.
+
+    Parameters
+    ----------
+    p : list or numpy.ndarray of shape (3,)
+         3x1 input vector
+
+    Returns
+    -------
+    til : numpy.ndarray of shape (3,3)
+         3x3 skew-symmetric matix corresponding to the cross-product operation
+
+    &#34;&#34;&#34;
+    
+    til=np.array([[0,-p[2],p[1]],[p[2],0,-p[0]],[-p[1],p[0],0]],dtype=np.float64)
+    return til
+
+
+def inv_tilda(til:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;Inverse function of the tilda function
+
+    Parameters
+    ----------
+    til : numpy.ndarray of shape (3,3)
+         3x3 skew-symmetric matix corresponding to the cross-product operation
+
+    Returns
+    -------
+    p : numpy.ndarray of shape (3,1)
+         3x1 vector corresponding to the input skew-symmetric matrix
+
+    &#34;&#34;&#34;
+    
+    p=np.zeros((3,1),dtype=np.float64)
+    p[0]=-til[1,2]
+    p[1]=til[0,2]
+    p[2]=-til[0,1]
+    return p
+
+def tilda6(P:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;Tilda operation used in Spatial Vector Algebra.
+
+    Parameters
+    ---------- 
+    P : list or numpy.ndarray of shape (6,)
+         Input spatial vector
+
+    Returns
+    -------
+    til : numpy.ndarray of shape (6,6)
+         6x6 matrix corresponding to tilda operation on P
+    &#34;&#34;&#34;
+    
+    x=P[0:3]
+    y=P[3:6]
+    x_tilda=tilda(x)
+    y_tilda=tilda(y)
+    til=np.zeros((6,6),dtype=np.float64)
+    til[0:3,0:3]=x_tilda
+    til[3:6,3:6]=x_tilda
+    til[3:6,0:3]=y_tilda
+    return til
+
+def Rx(theta:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;Returns rotation matrix for a rotation about x axis by theta radians
+
+    Parameters
+    ----------
+    theta : float
+         angle in radians 
+
+    Returns
+    -------
+    R : numpy.ndarray of shape (3,3)
+         3x3 Rotation Matrix
+
+    &#34;&#34;&#34;
+    
+    R=np.array([[1,0,0],
+                [0,cos(theta),-sin(theta)],
+                [0,sin(theta),cos(theta)]],dtype=np.float64)
+    return R
+
+def Ry(theta:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;Returns rotation matrix for a rotation about y axis by theta radians
+
+    Parameters
+    ----------
+    theta : float
+         angle in radians 
+
+    Returns
+    -------
+    R : numpy.ndarray of shape (3,3)
+         Rotation Matrix
+
+    &#34;&#34;&#34;
+    
+    R=np.array([[cos(theta),0,sin(theta)],
+                [0,1,0],
+                [-sin(theta),0,cos(theta)]],dtype=np.float64)
+    return R
+
+def Rz(theta:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;Returns rotation matrix for a rotation about z axis by theta radians
+
+    Parameters
+    ----------
+    theta : float
+         angle in radians 
+
+    Returns
+    -------
+    R : numpy.ndarray of shape (3,3)
+         Rotation Matrix
+
+    &#34;&#34;&#34;
+    
+    R=np.array([[cos(theta),-sin(theta),0],
+                [sin(theta),cos(theta),0],
+                [0,0,1]],dtype=np.float64)
+    return R
+
+def phi_link(d:float,a:float,alpha:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;Returns Rigid body transformation matrix corresponding to DH parameters d,a and alpha
+
+    Parameters
+    ----------
+    d : float
+         DH parameter d (joint offset in metres)
+    a : float
+         DH parameter a (link length in metres)
+    alpha : float
+         DH parameter alpha (link twist in radians)
+
+    Returns
+    -------
+    phi_l : numpy.ndarray of shape (6,6)
+         Rigid Body Transformation Matrix
+
+    &#34;&#34;&#34;
+    
+    R=Rx(alpha)
+    l=[a,-d*sin(alpha),d*cos(alpha)]
+    l_tilda=tilda(l)
+    phi_l=np.zeros((6,6),dtype=np.float64)
+    phi_l[0:3,0:3]=R
+    phi_l[0:3,3:6]=np.matmul(l_tilda,R)
+    phi_l[3:6,3:6]=R
+    return phi_l
+
+def phi_link6_7(l:float,b:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns link rigid body transformation matrix between #6 and #7^-
+
+    Parameters
+    ----------
+    l : float
+        Torso length.
+    b : float
+        torso breadth.
+
+    Returns
+    -------
+    phi_l : np.ndarray of shape (6,6)
+        Link rigid body transformation matrix between #6 and #7^-.
+
+    &#34;&#34;&#34;
+    l=np.array([[0,l/2,b/2]]).T
+    R=Rx(pi/2)
+    phi_l=np.zeros((6,6))
+    phi_l[0:3,0:3]=phi_l[3:6,3:6]=R
+    phi_l[0:3,3:6]=tilda(l) @ R
+    return phi_l
+
+def phi_link6_10(l:float,b:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns link rigid body transformation matrix between #6 and #10^-
+
+    Parameters
+    ----------
+    l : float
+        Torso length.
+    b : float
+        torso breadth.
+
+    Returns
+    -------
+    phi_l : np.ndarray of shape (6,6)
+        Link rigid body transformation matrix between #6 and #10^-.
+
+    &#34;&#34;&#34;
+    l=np.array([[0,l/2,-b/2]]).T
+    R=Rx(-pi/2)
+    phi_l=np.zeros((6,6))
+    phi_l[0:3,0:3]=phi_l[3:6,3:6]=R
+    phi_l[0:3,3:6]=tilda(l) @ R
+    return phi_l
+
+def phi_link6_13(l:float,b:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns link rigid body transformation matrix between #6 and #13^-
+
+    Parameters
+    ----------
+    l : float
+        Torso length.
+    b : float
+        torso breadth.
+
+    Returns
+    -------
+    phi_l : np.ndarray of shape (6,6)
+        Link rigid body transformation matrix between #6 and #13^-.
+
+    &#34;&#34;&#34;
+    l=np.array([[0,-l/2,b/2]]).T
+    R=Rx(pi/2)
+    phi_l=np.zeros((6,6))
+    phi_l[0:3,0:3]=phi_l[3:6,3:6]=R
+    phi_l[0:3,3:6]=tilda(l) @ R
+    return phi_l
+
+def phi_link6_16(l:float,b:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns link rigid body transformation matrix between #6 and #16^-
+
+    Parameters
+    ----------
+    l : float
+        Torso length.
+    b : float
+        torso breadth.
+
+    Returns
+    -------
+    phi_l : np.ndarray of shape (6,6)
+        Link rigid body transformation matrix between #6 and #16^-.
+
+    &#34;&#34;&#34;
+    l=np.array([[0,-l/2,-b/2]]).T
+    R=Rx(-pi/2)
+    phi_l=np.zeros((6,6))
+    phi_l[0:3,0:3]=phi_l[3:6,3:6]=R
+    phi_l[0:3,3:6]=tilda(l) @ R
+    return phi_l
+
+def phi_hinge(theta:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;Returns Rigid body transformation matrix corresponding to DH parameter theta
+
+    Parameters
+    ----------
+    theta : float
+         DH parameter theta (joint angle in radians)
+
+    Returns
+    -------
+    phi_h : numpy.ndarray of shape (6,6)
+         Rigid Body Transformation Matrix
+
+    &#34;&#34;&#34;
+    
+    R=Rz(theta)
+    phi_h=np.zeros((6,6),dtype=np.float64)
+    phi_h[0:3,0:3]=R
+    phi_h[3:6,3:6]=R
+    return phi_h
+
+
+
+
+def get_phi(alpha:np.ndarray,a:np.ndarray,d0:np.ndarray,theta0:np.ndarray,q:np.ndarray,a0:float,alpha0:float,l:float,b:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns a 3D arrays of rigid body transformation matrixes for all 18 joints in the quadruped (inclusive virtual joints)
+
+    Parameters
+    ----------
+    alpha : np.ndarray of shape (18,1)
+        Array of DH parameter alpha
+    a : np.ndarray of shape (18,1)
+        Array of DH parameter a
+    d0 : np.ndarray of shape (18,1)
+        Array of nominal joint offset
+    theta0 : np.ndarray of shape (18,1)
+        Array of nominal joint angle
+    q : np.ndarray of shape (18,1)
+        Array of joint positions
+    a0 : float
+        link length between world frame and #1
+    alpha0 : float
+        link twist between world frame and #1
+    l : float
+        torso length
+    b : float
+        torso breadth
+
+    Returns
+    -------
+    phis : np.ndarray of shape (18,6,6)
+        3D array of stacked rigid body transformation matrices
+    phis_l : np.ndarray of shape (18,6,6)
+        3D array of stacked link rigid body transformation matrices
+    phis_h : np.ndarray of shape (18,6,6)
+        3D array of stacked hinge rigid body transformation matrices
+
+    &#34;&#34;&#34;
+    #initializing 3D arrays
+    phis_l=np.zeros((18,6,6))
+    phis_h=np.zeros((18,6,6))
+    
+    #between world and #1 (prismatic joint)
+    phis_l[0,:,:]=phi_link(d0[0,0]+q[0,0],a0,alpha0)
+    phis_h[0,:,:]=phi_hinge(theta0[0,0])
+    
+    #two prismatic virtual joints
+    for i in range(1,3):
+        phis_l[i,:,:]=phi_link(d0[i,0]+q[i,0],a[i-1,0],alpha[i-1,0])
+        phis_h[i,:,:]=phi_hinge(theta0[i,0])
+    
+    #three prismatic revolute joints
+    for i in range(3,6):
+        phis_l[i,:,:]=phi_link(d0[i,0],a[i-1,0],alpha[i-1,0])
+        phis_h[i,:,:]=phi_hinge(theta0[i,0]+q[i,0])
+    
+    #branching joints from l6 to its children
+    phis_l[6,:,:]=phi_link6_7(l,b)
+    phis_l[9,:,:]=phi_link6_10(l,b)
+    phis_l[12,:,:]=phi_link6_13(l,b)
+    phis_l[15,:,:]=phi_link6_16(l,b)
+    
+    for i in [6,9,12,15]:
+        phis_h[i,:,:]=phi_hinge(theta0[i,0]+q[i,0])
+    
+    #leg joints
+    for i in [7,8,10,11,13,14,16,17]:
+        phis_l[i,:,:]=phi_link(d0[i,0],a[i-1,0],alpha[i-1,0])
+        phis_h[i,:,:]=phi_hinge(theta0[i,0]+q[i,0])
+
+    phis=phis_l@phis_h
+    return phis,phis_l,phis_h
+
+def pos_from_phi(phi:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;returns the position coordinates from a rigid body transformation matrix
+
+    Parameters
+    ----------
+    phi : numpy.ndarray of shape (6,6)
+         rigid body transformation matrix
+
+    Returns
+    -------
+    pos : numpy.ndarray
+         numpy array of shape (3,1) which is the position coordinates from phi
+
+    &#34;&#34;&#34;
+    
+    pos=inv_tilda(np.matmul(phi[0:3,3:6],phi[0:3,0:3].T))
+    return pos
+
+
+def create_IM(link)-&gt;Tuple[float,np.ndarray,np.ndarray]:
+    &#34;&#34;&#34;Gets the mass-inertia properties of the link from the Robot Description (URDF) loaded in the ROS parameter server
+    returns a tuple of the form (m,COM,I)
+    where m is the mass of the link
+    COM is the coordinates of the Centre of Mass of the link in terms of the link frame
+    I is the inertia tensor w.r.t the link frames
+    
+    Parameters
+    ----------
+    link : URDF.Link
+         urdf.link object corresponding to the link whose mass-inertia properties need to be extracted
+
+    Returns
+    -------
+    m : float
+         Mass of the link
+    COM : numpy.ndarray of shape (3,)
+         Coordinates of Centre of Mass of the links in terms of the link frame
+    I : numpy.ndarray of shape (3,3)
+         Inertia Tensor in terms of the link frame
+
+    &#34;&#34;&#34;
+    
+    link=link[0]
+    ixx=link.inertial.inertia.ixx
+    ixy=link.inertial.inertia.ixy
+    ixz=link.inertial.inertia.ixz
+    iyy=link.inertial.inertia.iyy
+    iyz=link.inertial.inertia.iyz
+    izz=link.inertial.inertia.izz
+    I=np.array([[ixx,ixy,ixz],
+                [ixy,iyy,iyz],
+                [ixz,iyz,izz]],dtype=np.float64)
+    
+    m=link.inertial.mass
+    
+    COM=np.array(link.inertial.origin.xyz,dtype=np.float64)
+
+    COM=COM.reshape((3,1))
+
+    It1=m*np.matmul(COM.T,COM)*np.eye(3,dtype=np.float64)
+    It2=-m*np.matmul(COM,COM.T)
+
+    I=I+1*It1+1*It2
+    
+    return m,COM.flatten(),I
+
+def get_DH(joints:np.ndarray,joint_names:np.ndarray)-&gt;Tuple[np.ndarray,np.ndarray,np.ndarray]:
+    &#34;&#34;&#34;Gets the DH parameters from the Robot Description (URDF) loaded in the ROS parameter server
+    
+    Parameters
+    ----------
+    joints : numpy.ndarray
+         array of 12 URDF.Joint objects
+    joint_names : numpy.ndarray
+         array of 12 Joint Names used to indicate the order in which the URDF.Joint objects exist in joints array
+
+    Returns
+    -------
+     a : numpy.ndarray
+         numpy array of shape (18,1) having the link length for links i=1 to 6
+     alpha : numpy.ndarray
+         numpy array of shape (18,1) having the link twist for links i=1 to 6
+     d : numpy.ndarray
+         numpy array of shape (18,1) having the joint offsets for joints i=1 to 6
+     theta0 : numpy.ndarray
+         numpy array of shape (18,1) having the nominal joint angle for joints i=1 to 6
+
+    &#34;&#34;&#34;
+    
+    a=np.zeros((18,1))
+    alpha=np.zeros((18,1))
+    d0=np.zeros((18,1))
+    theta0=np.zeros((18,1))
+    
+    for i in [8,9,11,12,14,15,17,18]:# for these joints we proceed normally
+        joint_name=&#34;j&#34;+str(i)
+        joint=joints[joint_names==joint_name][0]
+        #these are the xyz and rpy from the joint tag. You can derive the used formulas by equating 
+        #the transformation matrix from DH parameters with the transformation matrix from xyz-rpy
+        x=joint.origin.xyz[0]
+        y=joint.origin.xyz[1]
+        z=joint.origin.xyz[2]
+        roll=joint.origin.rpy[0]
+        pitch=joint.origin.rpy[1]
+        yaw=joint.origin.rpy[2]
+        a[i-2,0]=x
+        alpha[i-2,0]=-np.arctan2(cos(roll)*sin(pitch)*sin(yaw) - cos(yaw)*sin(roll),cos(pitch)*cos(roll))
+        alpha_=alpha[i-2,0]
+        if alpha_!=0:
+            d0[i-1,0]=-y/sin(alpha_)
+        else:
+            d0[i-1,0]=z/cos(alpha_)
+        theta0[i-1,0]=-np.arctan2(cos(yaw)*sin(pitch)*sin(roll) - cos(roll)*sin(yaw),cos(pitch)*cos(yaw))
+    
+    #for these joints we are hard coding since there is no physical joint corresponding to these
+    alpha[0:5,0]=[-pi/2,-pi/2,pi,-pi/2,pi/2]
+    a[[8,11,14,17],0]=0.22594935
+    d0[2,0]=0.25969851
+    theta0[0:6,0]=[-pi/2,-pi/2,0,pi/2,pi/2,pi]
+    
+    
+    return a,alpha,d0,theta0
+
+def getlb(joints:np.ndarray,joint_names:np.ndarray)-&gt;Tuple[float,float]:
+    &#34;&#34;&#34;
+    Returns the length and breadth of the torso link
+
+    Parameters
+    ----------
+    joints : numpy.ndarray
+         array of 6 URDF.Joint objects
+    joint_names : numpy.ndarray
+         array of 6 Joint Names used to indicate the order in which the URDF.Joint objects exist in joints array
+
+    Returns
+    -------
+    Tuple[float,float]
+        Tuple of length and breadth of the torso link
+
+    &#34;&#34;&#34;
+    joint_name=&#34;j7&#34;
+    joint=joints[joint_names==joint_name][0]
+    l=2*joint.origin.xyz[1]
+    b=2*joint.origin.xyz[2]
+    return l,b
+
+def euler2omega_jacobian(alpha:float,beta:float,gamma:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;returns the 3x3 Jacobian Matrix for converting angular velocities to Euler Angle Rates for the ZYZ Euler Angles
+
+    Parameters
+    ----------
+    alpha : float
+         first angle in a ZYZ Euler Angle notation
+    beta : float
+         second angle in a ZYZ Euler Angle notation
+    gamma : float
+         third angle in a ZYZ Euler Angle notation
+
+    Returns
+    -------
+    Te : numpy.ndarray of shape (3,3)
+         3x3 Jacobian Matrix for converting angular velocities to Euler Angle Rates for the ZYZ Euler Angles
+
+    &#34;&#34;&#34;
+    
+    Te = np.array([[0, -sin(alpha), cos(alpha)*sin(beta)],
+                     [0, cos(alpha), sin(alpha)*sin(beta)],
+                     [1, 0, cos(beta)]])
+    return Te
+
+
+def geometric2analytic_jacobian(euler:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;returns the 6x6 matrix which needs to be post multiplied by the Geometric Jacobian 
+    for converting it into Analytical Jacobian for use with ZYZ Euler Angles
+
+    Parameters
+    ----------
+    euler : np.ndarray of shape (3,1)
+         array of euler angles
+
+    Returns
+    -------
+    Ta_inv : numpy.ndarray of shape (6,6)
+         6x6 matrix which needs to be post multiplied by the 6x6 Geometric Jacobian 
+        of a single side for converting it into Analytical Jacobian for use with ZYZ Euler Angles
+
+    &#34;&#34;&#34;
+    
+    alpha=euler[0,0]
+    beta=euler[1,0]
+    gamma=euler[2,0]
+    Te=euler2omega_jacobian(alpha,beta,gamma)
+    Te_inv=inv(Te)
+    Ta_inv=np.eye(6)
+    Ta_inv[0:3,0:3]=Te_inv
+    return Ta_inv
+
+def get_cumulativeTC(phis:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns cumulative rigid body matrices phi_i_6 for i = 0 to 5
+
+    Parameters
+    ----------
+    phis : np.ndarray of shape (18,6,6)
+        3D stacked array of rigid body transformation matrices
+
+    Returns
+    -------
+    cphis_tc : np.ndarray of shape (6,6,6)
+        3D array of stacked cumulative rigid body matrices phi_i_6 for i = 0 to 5
+
+    &#34;&#34;&#34;
+    
+    cphis_tc=np.zeros((6,6,6))
+    cphis_tc[5,:,:]=phis[5,:,:]
+    for i in [4,3,2,1,0]:
+        cphis_tc[i,:,:]=phis[i,:,:] @ cphis_tc[i+1,:,:]
+    return cphis_tc
+
+def get_cumulativeRF(phis:np.ndarray,phi0_6:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns cumulative rigid body matrices phi_i_19 for i = 0,6,7,8,9
+
+    Parameters
+    ----------
+    phis : np.ndarray of shape (18,6,6)
+        3D stacked array of rigid body transformation matrices
+    phi0_6 : np.ndarray of shape (6,6)
+        Rigid body transformation matrix from #0 to #6
+
+    Returns
+    -------
+    cphis_rf : np.ndarray of shape (5,6,6)
+        3D array of stacked cumulative rigid body matrices phi_i_19 for i = 0,6,7,8,9
+
+    &#34;&#34;&#34;
+    
+    cphis_rf=np.zeros((5,6,6))
+    cphis_rf[4,:,:]=phik_f
+    for i in [8,7,6]:
+        cphis_rf[i-5,:,:]=phis[i,:,:] @ cphis_rf[i-4,:,:]
+    cphis_rf[0,:,:]=phi0_6 @ cphis_rf[1,:,:]
+    return cphis_rf
+
+def get_cumulativeLF(phis:np.ndarray,phi0_6:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns cumulative rigid body matrices phi_i_20 for i = 0,6,10,11,12
+
+    Parameters
+    ----------
+    phis : np.ndarray of shape (18,6,6)
+        3D stacked array of rigid body transformation matrices
+    phi0_6 : np.ndarray of shape (6,6)
+        Rigid body transformation matrix from #0 to #6
+
+    Returns
+    -------
+    cphis_lf : np.ndarray of shape (5,6,6)
+        3D array of stacked cumulative rigid body matrices phi_i_20 for i = 0,6,10,11,12
+
+    &#34;&#34;&#34;
+    
+    cphis_lf=np.zeros((5,6,6))
+    cphis_lf[4,:,:]=phik_f
+    for i in [11,10,9]:
+        cphis_lf[i-8,:,:]=phis[i,:,:] @ cphis_lf[i-7,:,:]
+    cphis_lf[0,:,:]=phi0_6 @ cphis_lf[1,:,:]
+    return cphis_lf
+
+def get_cumulativeRH(phis:np.ndarray,phi0_6:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns cumulative rigid body matrices phi_i_21 for i = 0,6,13,14,15
+
+    Parameters
+    ----------
+    phis : np.ndarray of shape (18,6,6)
+        3D stacked array of rigid body transformation matrices
+    phi0_6 : np.ndarray of shape (6,6)
+        Rigid body transformation matrix from #0 to #6
+
+    Returns
+    -------
+    cphis_rh : np.ndarray of shape (5,6,6)
+        3D array of stacked cumulative rigid body matrices phi_i_21 for i = 0,6,13,14,15
+
+    &#34;&#34;&#34;
+    
+    cphis_rh=np.zeros((5,6,6))
+    cphis_rh[4,:,:]=phik_f
+    for i in [14,13,12]:
+        cphis_rh[i-11,:,:]=phis[i,:,:] @ cphis_rh[i-10,:,:]
+    cphis_rh[0,:,:]=phi0_6 @ cphis_rh[1,:,:]
+    return cphis_rh
+
+def get_cumulativeLH(phis:np.ndarray,phi0_6:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns cumulative rigid body matrices phi_i_22 for i = 0,6,16,17,18
+
+    Parameters
+    ----------
+    phis : np.ndarray of shape (18,6,6)
+        3D stacked array of rigid body transformation matrices
+    phi0_6 : np.ndarray of shape (6,6)
+        Rigid body transformation matrix from #0 to #6
+
+    Returns
+    -------
+    cphis_lh : np.ndarray of shape (5,6,6)
+        3D array of stacked cumulative rigid body matrices phi_i_22 for i = 0,6,16,17,18
+
+    &#34;&#34;&#34;
+    
+    cphis_lh=np.zeros((5,6,6))
+    cphis_lh[4,:,:]=phik_f
+    for i in [17,16,15]:
+        cphis_lh[i-14,:,:]=phis[i,:,:] @ cphis_lh[i-13,:,:]
+    cphis_lh[0,:,:]=phi0_6 @ cphis_lh[1,:,:]
+    return cphis_lh
+
+def J_TC(cphis_tc:np.ndarray):
+    &#34;&#34;&#34;
+    Returns the Geometric Jacobian for the Torso Centre
+
+    Parameters
+    ----------
+    cphis_tc : np.ndarray of shape (6,6,6)
+        Cumulative rigid body matrices corresponding to torso centre
+
+    Returns
+    -------
+    J_tc : np.ndarray of shape (6,18)
+        Geometric Jacobian for the Torso Centre
+    R06 : np.ndarray of shape (6,6)
+        Spatial rotation matrix from #0 to #6
+    p_tc : np.ndarray of shape (6,6)
+        Geometric Jacobian for 6V6 corresponding to first 6 virtual joints
+
+    &#34;&#34;&#34;
+    p_tc=np.zeros((6,6))
+    for i in range (1,4):
+        p_tc[:,i-1]=(Hp @ cphis_tc[i,:,:]).squeeze()#prismatic joints
+    for i in range (4,6):
+        p_tc[:,i-1]=(Hr @ cphis_tc[i,:,:]).squeeze()#revolute joints
+    p_tc[:,5]=Hr.squeeze()#corresponding to q6
+    R06=np.zeros((6,6))
+    R06[0:3,0:3]=R06[3:6,3:6]=cphis_tc[0,0:3,0:3]
+    J_tc= R06 @ p_tc @ I_tc
+    return J_tc,R06,p_tc
+
+def J_RF(cphis_rf:np.ndarray,p_tc:np.ndarray):
+    &#34;&#34;&#34;
+    the Geometric Jacobian for the right front foot
+
+    Parameters
+    ----------
+    cphis_rf : np.ndarray of shape (5,6,6)
+        Cumulative rigid body matrices corresponding to right front foot
+    p_tc : np.ndarray of shape (6,6)
+        Geometric Jacobian for 6V6 corresponding to first 6 virtual joints
+
+    Returns
+    -------
+    J_rf : np.ndarray of shape (6,18)
+        Geometric Jacobian for the right front foot
+    R0_19 : np.ndarray of shape (6,6)
+        Spatial rotation matrix from #0 to #19
+    p_rf : np.ndarray of shape (6,3)
+        Geometric Jacobian for 19V19 corresponding to the joints of right front leg
+
+    &#34;&#34;&#34;
+    p_rf=np.zeros((6,3))
+    for i in range(2,5):
+        p_rf[:,i-2]=(Hr @ cphis_rf[i,:,:]).squeeze()
+    R0_19=np.zeros((6,6))
+    R0_19[0:3,0:3]=R0_19[3:6,3:6]=cphis_rf[0,0:3,0:3]
+    phi6_19=cphis_rf[1,:,:]
+    J_rf=R0_19 @ (phi6_19.T @ p_tc @ I_tc + p_rf @ I_rf)
+    return J_rf,R0_19,p_rf
+
+def J_LF(cphis_lf:np.ndarray,p_tc:np.ndarray):
+    &#34;&#34;&#34;
+    the Geometric Jacobian for the left front foot
+
+    Parameters
+    ----------
+    cphis_lf : np.ndarray of shape (5,6,6)
+        Cumulative rigid body matrices corresponding to left front foot
+    p_tc : np.ndarray of shape (6,6)
+        Geometric Jacobian for 6V6 corresponding to first 6 virtual joints
+
+    Returns
+    -------
+    J_lf : np.ndarray of shape (6,18)
+        Geometric Jacobian for the left front foot
+    R0_20 : np.ndarray of shape (6,6)
+        Spatial rotation matrix from #0 to #20
+    p_rf : np.ndarray of shape (6,3)
+        Geometric Jacobian for 20V20 corresponding to the joints of left front leg
+
+    &#34;&#34;&#34;
+    p_lf=np.zeros((6,3))
+    for i in range(2,5):
+        p_lf[:,i-2]=(Hr @ cphis_lf[i,:,:]).squeeze()
+    R0_20=np.zeros((6,6))
+    R0_20[0:3,0:3]=R0_20[3:6,3:6]=cphis_lf[0,0:3,0:3]
+    phi6_20=cphis_lf[1,:,:]
+    J_lf=R0_20 @ (phi6_20.T @ p_tc @ I_tc + p_lf @ I_lf)
+    return J_lf,R0_20,p_lf
+
+def J_RH(cphis_rh:np.ndarray,p_tc:np.ndarray):
+    &#34;&#34;&#34;
+    the Geometric Jacobian for the right hind foot
+
+    Parameters
+    ----------
+    cphis_rh : np.ndarray of shape (5,6,6)
+        Cumulative rigid body matrices corresponding to right hind foot
+    p_tc : np.ndarray of shape (6,6)
+        Geometric Jacobian for 6V6 corresponding to first 6 virtual joints
+
+    Returns
+    -------
+    J_rh : np.ndarray of shape (6,18)
+        Geometric Jacobian for the right hind foot
+    R0_21 : np.ndarray of shape (6,6)
+        Spatial rotation matrix from #0 to #21
+    p_rh : np.ndarray of shape (6,3)
+        Geometric Jacobian for 21V21 corresponding to the joints of right hind leg
+
+    &#34;&#34;&#34;
+    p_rh=np.zeros((6,3))
+    for i in range(2,5):
+        p_rh[:,i-2]=(Hr @ cphis_rh[i,:,:]).squeeze()
+    R0_21=np.zeros((6,6))
+    R0_21[0:3,0:3]=R0_21[3:6,3:6]=cphis_rh[0,0:3,0:3]
+    phi6_21=cphis_rh[1,:,:]
+    J_rh=R0_21 @ (phi6_21.T @ p_tc @ I_tc + p_rh @ I_rh)
+    return J_rh,R0_21,p_rh
+
+def J_LH(cphis_lh:np.ndarray,p_tc:np.ndarray):
+    &#34;&#34;&#34;
+    the Geometric Jacobian for the left hind foot
+
+    Parameters
+    ----------
+    cphis_lh : np.ndarray of shape (5,6,6)
+        Cumulative rigid body matrices corresponding to left hind foot
+    p_tc : np.ndarray of shape (6,6)
+        Geometric Jacobian for 6V6 corresponding to first 6 virtual joints
+
+    Returns
+    -------
+    J_lh : np.ndarray of shape (6,18)
+        Geometric Jacobian for the left hind foot
+    R0_22 : np.ndarray of shape (6,6)
+        Spatial rotation matrix from #0 to #22
+    p_lh : np.ndarray of shape (6,3)
+        Geometric Jacobian for 22V22 corresponding to the joints of left hind leg
+
+    &#34;&#34;&#34;
+    p_lh=np.zeros((6,3))
+    for i in range(2,5):
+        p_lh[:,i-2]=(Hr @ cphis_lh[i,:,:]).squeeze()
+    R0_22=np.zeros((6,6))
+    R0_22[0:3,0:3]=R0_22[3:6,3:6]=cphis_lh[0,0:3,0:3]
+    phi6_22=cphis_lh[1,:,:]
+    J_lh=R0_22 @ (phi6_22.T @ p_tc @ I_tc + p_lh @ I_lh)
+    return J_lh,R0_22,p_lh 
+
+#initializing kinematic parameters of the half humanoid  
+print(&#34;Initializing Kinematic properties of the Half Humanoid&#34;) 
+robot = URDF.from_parameter_server() #getting robot description from ROS parameter server
+link_names=np.array([l.name for l in robot.links]) #list of link names
+links=np.array(robot.links) #list of URDF.Link
+joint_names=np.array([j.name for j in robot.joints]) #list of joint names
+joints=np.array(robot.joints) #list of URDF.Joint
+
+Hr=np.array([[0,0,1,0,0,0]],dtype=np.float64) #Hinge Map Matrix
+&#34;&#34;&#34;Hinge Map Matrix for a revolute joint&#34;&#34;&#34;
+
+Hp=np.array([[0,0,0,0,0,1]],dtype=np.float64) #Hinge Map Matrix
+&#34;&#34;&#34;Hinge Map Matrix for a prismatic joint&#34;&#34;&#34;
+
+a0=0 #link length for base link
+&#34;&#34;&#34;Link length for base link&#34;&#34;&#34;
+
+alpha0=-pi/2 #link twist for base link
+&#34;&#34;&#34;Link twist for base link&#34;&#34;&#34;
+
+a=np.zeros((18,1))
+&#34;&#34;&#34;array of DH parameters a&#34;&#34;&#34;
+alpha=np.zeros((18,1))
+&#34;&#34;&#34;array of DH parameters alpha&#34;&#34;&#34;
+d0=np.zeros((18,1))
+&#34;&#34;&#34;array of DH parameters d&#34;&#34;&#34;
+theta0=np.zeros((18,1))
+&#34;&#34;&#34;array of nominal joint angles&#34;&#34;&#34;
+l=0
+&#34;&#34;&#34;Torso length&#34;&#34;&#34;
+b=0
+&#34;&#34;&#34;Torso Breadth&#34;&#34;&#34;
+a[:,:],alpha[:,:],d0[:,:],theta0[:,:]=get_DH(joints,joint_names)#get DH parameters
+
+l,b=getlb(joints,joint_names)
+
+phik_f=np.zeros((6,6),dtype=np.float64)
+&#34;&#34;&#34;rigid body transformation matrices from knee frame to foot frame&#34;&#34;&#34;
+
+phik_f[0:3,3:6]=tilda([0.22594935163,0,0])
+phik_f[0:3,0:3]=phik_f[3:6,3:6]=np.eye(3)
+
+I_tc=np.zeros((6,18))
+&#34;&#34;&#34;Block Matrix composed by I6 and zeros to isolate the virtual joints&#34;&#34;&#34;
+I_tc[0:6,0:6]=np.eye(6)
+
+I_rf=np.zeros((3,18))
+&#34;&#34;&#34;Block Matrix composed by I3 and zeros to isolate the right front leg joints&#34;&#34;&#34;
+I_rf[:,6:9]=np.eye(3)
+
+I_lf=np.zeros((3,18))
+&#34;&#34;&#34;Block Matrix composed by I3 and zeros to isolate the left front leg joints&#34;&#34;&#34;
+I_lf[:,9:12]=np.eye(3)
+
+I_rh=np.zeros((3,18))
+&#34;&#34;&#34;Block Matrix composed by I3 and zeros to isolate the right hind leg joints&#34;&#34;&#34;
+I_rh[:,12:15]=np.eye(3)
+
+I_lh=np.zeros((3,18))
+&#34;&#34;&#34;Block Matrix composed by I3 and zeros to isolate the left hind leg joints&#34;&#34;&#34;
+I_lh[:,15:18]=np.eye(3)
+#initializing mass-inertia properties of the half humanoid
+print(&#34;Initializing Mass-Inertia properties of the Half Humanoid&#34;)
+m=13*[0] #list of link masses
+&#34;&#34;&#34;list of link masses&#34;&#34;&#34;
+COMs=np.zeros((3,13),dtype=np.float64) #list of link centre of mass
+&#34;&#34;&#34;array of link centre of masses&#34;&#34;&#34;
+IMs=13*[0] #list of Inertia Tensor
+&#34;&#34;&#34;list of link rotational inertias&#34;&#34;&#34;
+
+for i in range(6,19):
+    m[i-6],COMs[:,i-6],IMs[i-6]=create_IM(links[link_names==&#39;l&#39;+str(i)])
+
+#for testing
+if __name__==&#34;__main__&#34;:
+    t0=time.process_time()
+    q=np.zeros((18,1))
+    phis,phis_l,phis_h=get_phi(alpha,a,d0,theta0,q,a0,alpha0,l,b)
+    cphis_tc=get_cumulativeTC(phis)
+    phi0_6=cphis_tc[0,:,:]
+    cphis_rf=get_cumulativeRF(phis,phi0_6)
+    cphis_lf=get_cumulativeLF(phis,phi0_6)
+    cphis_rh=get_cumulativeRH(phis,phi0_6)
+    cphis_lh=get_cumulativeLH(phis,phi0_6)
+    J_tc,R06,p_tc=J_TC(cphis_tc)
+    J_rf,R0_19,p_rf=J_RF(cphis_rf,p_tc)
+    J_lf,R0_20,p_lf=J_LF(cphis_lf,p_tc)
+    J_rh,R0_21,p_rh=J_RH(cphis_rh,p_tc)
+    J_lh,R0_22,p_lh=J_LH(cphis_lh,p_tc)
+    t1=time.process_time()
+    print(t1-t0)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="src.control_func.COMs"><code class="name">var <span class="ident">COMs</span></code></dt>
+<dd>
+<div class="desc"><p>array of link centre of masses</p></div>
+</dd>
+<dt id="src.control_func.Hp"><code class="name">var <span class="ident">Hp</span></code></dt>
+<dd>
+<div class="desc"><p>Hinge Map Matrix for a prismatic joint</p></div>
+</dd>
+<dt id="src.control_func.Hr"><code class="name">var <span class="ident">Hr</span></code></dt>
+<dd>
+<div class="desc"><p>Hinge Map Matrix for a revolute joint</p></div>
+</dd>
+<dt id="src.control_func.IMs"><code class="name">var <span class="ident">IMs</span></code></dt>
+<dd>
+<div class="desc"><p>list of link rotational inertias</p></div>
+</dd>
+<dt id="src.control_func.I_lf"><code class="name">var <span class="ident">I_lf</span></code></dt>
+<dd>
+<div class="desc"><p>Block Matrix composed by I3 and zeros to isolate the left front leg joints</p></div>
+</dd>
+<dt id="src.control_func.I_lh"><code class="name">var <span class="ident">I_lh</span></code></dt>
+<dd>
+<div class="desc"><p>Block Matrix composed by I3 and zeros to isolate the left hind leg joints</p></div>
+</dd>
+<dt id="src.control_func.I_rf"><code class="name">var <span class="ident">I_rf</span></code></dt>
+<dd>
+<div class="desc"><p>Block Matrix composed by I3 and zeros to isolate the right front leg joints</p></div>
+</dd>
+<dt id="src.control_func.I_rh"><code class="name">var <span class="ident">I_rh</span></code></dt>
+<dd>
+<div class="desc"><p>Block Matrix composed by I3 and zeros to isolate the right hind leg joints</p></div>
+</dd>
+<dt id="src.control_func.I_tc"><code class="name">var <span class="ident">I_tc</span></code></dt>
+<dd>
+<div class="desc"><p>Block Matrix composed by I6 and zeros to isolate the virtual joints</p></div>
+</dd>
+<dt id="src.control_func.a"><code class="name">var <span class="ident">a</span></code></dt>
+<dd>
+<div class="desc"><p>array of DH parameters a</p></div>
+</dd>
+<dt id="src.control_func.a0"><code class="name">var <span class="ident">a0</span></code></dt>
+<dd>
+<div class="desc"><p>Link length for base link</p></div>
+</dd>
+<dt id="src.control_func.alpha"><code class="name">var <span class="ident">alpha</span></code></dt>
+<dd>
+<div class="desc"><p>array of DH parameters alpha</p></div>
+</dd>
+<dt id="src.control_func.alpha0"><code class="name">var <span class="ident">alpha0</span></code></dt>
+<dd>
+<div class="desc"><p>Link twist for base link</p></div>
+</dd>
+<dt id="src.control_func.b"><code class="name">var <span class="ident">b</span></code></dt>
+<dd>
+<div class="desc"><p>Torso Breadth</p></div>
+</dd>
+<dt id="src.control_func.d0"><code class="name">var <span class="ident">d0</span></code></dt>
+<dd>
+<div class="desc"><p>array of DH parameters d</p></div>
+</dd>
+<dt id="src.control_func.l"><code class="name">var <span class="ident">l</span></code></dt>
+<dd>
+<div class="desc"><p>Torso length</p></div>
+</dd>
+<dt id="src.control_func.m"><code class="name">var <span class="ident">m</span></code></dt>
+<dd>
+<div class="desc"><p>list of link masses</p></div>
+</dd>
+<dt id="src.control_func.phik_f"><code class="name">var <span class="ident">phik_f</span></code></dt>
+<dd>
+<div class="desc"><p>rigid body transformation matrices from knee frame to foot frame</p></div>
+</dd>
+<dt id="src.control_func.theta0"><code class="name">var <span class="ident">theta0</span></code></dt>
+<dd>
+<div class="desc"><p>array of nominal joint angles</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="src.control_func.J_LF"><code class="name flex">
+<span>def <span class="ident">J_LF</span></span>(<span>cphis_lf: numpy.ndarray, p_tc: numpy.ndarray)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>the Geometric Jacobian for the left front foot</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>cphis_lf</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (5,6,6)</code></dt>
+<dd>Cumulative rigid body matrices corresponding to left front foot</dd>
+<dt><strong><code>p_tc</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Geometric Jacobian for 6V6 corresponding to first 6 virtual joints</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>J_lf</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,18)</code></dt>
+<dd>Geometric Jacobian for the left front foot</dd>
+<dt><strong><code>R0_20</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Spatial rotation matrix from #0 to #20</dd>
+<dt><strong><code>p_rf</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,3)</code></dt>
+<dd>Geometric Jacobian for 20V20 corresponding to the joints of left front leg</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def J_LF(cphis_lf:np.ndarray,p_tc:np.ndarray):
+    &#34;&#34;&#34;
+    the Geometric Jacobian for the left front foot
+
+    Parameters
+    ----------
+    cphis_lf : np.ndarray of shape (5,6,6)
+        Cumulative rigid body matrices corresponding to left front foot
+    p_tc : np.ndarray of shape (6,6)
+        Geometric Jacobian for 6V6 corresponding to first 6 virtual joints
+
+    Returns
+    -------
+    J_lf : np.ndarray of shape (6,18)
+        Geometric Jacobian for the left front foot
+    R0_20 : np.ndarray of shape (6,6)
+        Spatial rotation matrix from #0 to #20
+    p_rf : np.ndarray of shape (6,3)
+        Geometric Jacobian for 20V20 corresponding to the joints of left front leg
+
+    &#34;&#34;&#34;
+    p_lf=np.zeros((6,3))
+    for i in range(2,5):
+        p_lf[:,i-2]=(Hr @ cphis_lf[i,:,:]).squeeze()
+    R0_20=np.zeros((6,6))
+    R0_20[0:3,0:3]=R0_20[3:6,3:6]=cphis_lf[0,0:3,0:3]
+    phi6_20=cphis_lf[1,:,:]
+    J_lf=R0_20 @ (phi6_20.T @ p_tc @ I_tc + p_lf @ I_lf)
+    return J_lf,R0_20,p_lf</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.J_LH"><code class="name flex">
+<span>def <span class="ident">J_LH</span></span>(<span>cphis_lh: numpy.ndarray, p_tc: numpy.ndarray)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>the Geometric Jacobian for the left hind foot</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>cphis_lh</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (5,6,6)</code></dt>
+<dd>Cumulative rigid body matrices corresponding to left hind foot</dd>
+<dt><strong><code>p_tc</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Geometric Jacobian for 6V6 corresponding to first 6 virtual joints</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>J_lh</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,18)</code></dt>
+<dd>Geometric Jacobian for the left hind foot</dd>
+<dt><strong><code>R0_22</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Spatial rotation matrix from #0 to #22</dd>
+<dt><strong><code>p_lh</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,3)</code></dt>
+<dd>Geometric Jacobian for 22V22 corresponding to the joints of left hind leg</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def J_LH(cphis_lh:np.ndarray,p_tc:np.ndarray):
+    &#34;&#34;&#34;
+    the Geometric Jacobian for the left hind foot
+
+    Parameters
+    ----------
+    cphis_lh : np.ndarray of shape (5,6,6)
+        Cumulative rigid body matrices corresponding to left hind foot
+    p_tc : np.ndarray of shape (6,6)
+        Geometric Jacobian for 6V6 corresponding to first 6 virtual joints
+
+    Returns
+    -------
+    J_lh : np.ndarray of shape (6,18)
+        Geometric Jacobian for the left hind foot
+    R0_22 : np.ndarray of shape (6,6)
+        Spatial rotation matrix from #0 to #22
+    p_lh : np.ndarray of shape (6,3)
+        Geometric Jacobian for 22V22 corresponding to the joints of left hind leg
+
+    &#34;&#34;&#34;
+    p_lh=np.zeros((6,3))
+    for i in range(2,5):
+        p_lh[:,i-2]=(Hr @ cphis_lh[i,:,:]).squeeze()
+    R0_22=np.zeros((6,6))
+    R0_22[0:3,0:3]=R0_22[3:6,3:6]=cphis_lh[0,0:3,0:3]
+    phi6_22=cphis_lh[1,:,:]
+    J_lh=R0_22 @ (phi6_22.T @ p_tc @ I_tc + p_lh @ I_lh)
+    return J_lh,R0_22,p_lh </code></pre>
+</details>
+</dd>
+<dt id="src.control_func.J_RF"><code class="name flex">
+<span>def <span class="ident">J_RF</span></span>(<span>cphis_rf: numpy.ndarray, p_tc: numpy.ndarray)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>the Geometric Jacobian for the right front foot</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>cphis_rf</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (5,6,6)</code></dt>
+<dd>Cumulative rigid body matrices corresponding to right front foot</dd>
+<dt><strong><code>p_tc</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Geometric Jacobian for 6V6 corresponding to first 6 virtual joints</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>J_rf</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,18)</code></dt>
+<dd>Geometric Jacobian for the right front foot</dd>
+<dt><strong><code>R0_19</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Spatial rotation matrix from #0 to #19</dd>
+<dt><strong><code>p_rf</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,3)</code></dt>
+<dd>Geometric Jacobian for 19V19 corresponding to the joints of right front leg</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def J_RF(cphis_rf:np.ndarray,p_tc:np.ndarray):
+    &#34;&#34;&#34;
+    the Geometric Jacobian for the right front foot
+
+    Parameters
+    ----------
+    cphis_rf : np.ndarray of shape (5,6,6)
+        Cumulative rigid body matrices corresponding to right front foot
+    p_tc : np.ndarray of shape (6,6)
+        Geometric Jacobian for 6V6 corresponding to first 6 virtual joints
+
+    Returns
+    -------
+    J_rf : np.ndarray of shape (6,18)
+        Geometric Jacobian for the right front foot
+    R0_19 : np.ndarray of shape (6,6)
+        Spatial rotation matrix from #0 to #19
+    p_rf : np.ndarray of shape (6,3)
+        Geometric Jacobian for 19V19 corresponding to the joints of right front leg
+
+    &#34;&#34;&#34;
+    p_rf=np.zeros((6,3))
+    for i in range(2,5):
+        p_rf[:,i-2]=(Hr @ cphis_rf[i,:,:]).squeeze()
+    R0_19=np.zeros((6,6))
+    R0_19[0:3,0:3]=R0_19[3:6,3:6]=cphis_rf[0,0:3,0:3]
+    phi6_19=cphis_rf[1,:,:]
+    J_rf=R0_19 @ (phi6_19.T @ p_tc @ I_tc + p_rf @ I_rf)
+    return J_rf,R0_19,p_rf</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.J_RH"><code class="name flex">
+<span>def <span class="ident">J_RH</span></span>(<span>cphis_rh: numpy.ndarray, p_tc: numpy.ndarray)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>the Geometric Jacobian for the right hind foot</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>cphis_rh</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (5,6,6)</code></dt>
+<dd>Cumulative rigid body matrices corresponding to right hind foot</dd>
+<dt><strong><code>p_tc</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Geometric Jacobian for 6V6 corresponding to first 6 virtual joints</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>J_rh</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,18)</code></dt>
+<dd>Geometric Jacobian for the right hind foot</dd>
+<dt><strong><code>R0_21</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Spatial rotation matrix from #0 to #21</dd>
+<dt><strong><code>p_rh</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,3)</code></dt>
+<dd>Geometric Jacobian for 21V21 corresponding to the joints of right hind leg</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def J_RH(cphis_rh:np.ndarray,p_tc:np.ndarray):
+    &#34;&#34;&#34;
+    the Geometric Jacobian for the right hind foot
+
+    Parameters
+    ----------
+    cphis_rh : np.ndarray of shape (5,6,6)
+        Cumulative rigid body matrices corresponding to right hind foot
+    p_tc : np.ndarray of shape (6,6)
+        Geometric Jacobian for 6V6 corresponding to first 6 virtual joints
+
+    Returns
+    -------
+    J_rh : np.ndarray of shape (6,18)
+        Geometric Jacobian for the right hind foot
+    R0_21 : np.ndarray of shape (6,6)
+        Spatial rotation matrix from #0 to #21
+    p_rh : np.ndarray of shape (6,3)
+        Geometric Jacobian for 21V21 corresponding to the joints of right hind leg
+
+    &#34;&#34;&#34;
+    p_rh=np.zeros((6,3))
+    for i in range(2,5):
+        p_rh[:,i-2]=(Hr @ cphis_rh[i,:,:]).squeeze()
+    R0_21=np.zeros((6,6))
+    R0_21[0:3,0:3]=R0_21[3:6,3:6]=cphis_rh[0,0:3,0:3]
+    phi6_21=cphis_rh[1,:,:]
+    J_rh=R0_21 @ (phi6_21.T @ p_tc @ I_tc + p_rh @ I_rh)
+    return J_rh,R0_21,p_rh</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.J_TC"><code class="name flex">
+<span>def <span class="ident">J_TC</span></span>(<span>cphis_tc: numpy.ndarray)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the Geometric Jacobian for the Torso Centre</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>cphis_tc</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6,6)</code></dt>
+<dd>Cumulative rigid body matrices corresponding to torso centre</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>J_tc</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,18)</code></dt>
+<dd>Geometric Jacobian for the Torso Centre</dd>
+<dt><strong><code>R06</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Spatial rotation matrix from #0 to #6</dd>
+<dt><strong><code>p_tc</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Geometric Jacobian for 6V6 corresponding to first 6 virtual joints</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def J_TC(cphis_tc:np.ndarray):
+    &#34;&#34;&#34;
+    Returns the Geometric Jacobian for the Torso Centre
+
+    Parameters
+    ----------
+    cphis_tc : np.ndarray of shape (6,6,6)
+        Cumulative rigid body matrices corresponding to torso centre
+
+    Returns
+    -------
+    J_tc : np.ndarray of shape (6,18)
+        Geometric Jacobian for the Torso Centre
+    R06 : np.ndarray of shape (6,6)
+        Spatial rotation matrix from #0 to #6
+    p_tc : np.ndarray of shape (6,6)
+        Geometric Jacobian for 6V6 corresponding to first 6 virtual joints
+
+    &#34;&#34;&#34;
+    p_tc=np.zeros((6,6))
+    for i in range (1,4):
+        p_tc[:,i-1]=(Hp @ cphis_tc[i,:,:]).squeeze()#prismatic joints
+    for i in range (4,6):
+        p_tc[:,i-1]=(Hr @ cphis_tc[i,:,:]).squeeze()#revolute joints
+    p_tc[:,5]=Hr.squeeze()#corresponding to q6
+    R06=np.zeros((6,6))
+    R06[0:3,0:3]=R06[3:6,3:6]=cphis_tc[0,0:3,0:3]
+    J_tc= R06 @ p_tc @ I_tc
+    return J_tc,R06,p_tc</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.Rx"><code class="name flex">
+<span>def <span class="ident">Rx</span></span>(<span>theta: float) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns rotation matrix for a rotation about x axis by theta radians</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>theta</code></strong> :&ensp;<code>float</code></dt>
+<dd>angle in radians</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>R</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (3,3)</code></dt>
+<dd>3x3 Rotation Matrix</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def Rx(theta:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;Returns rotation matrix for a rotation about x axis by theta radians
+
+    Parameters
+    ----------
+    theta : float
+         angle in radians 
+
+    Returns
+    -------
+    R : numpy.ndarray of shape (3,3)
+         3x3 Rotation Matrix
+
+    &#34;&#34;&#34;
+    
+    R=np.array([[1,0,0],
+                [0,cos(theta),-sin(theta)],
+                [0,sin(theta),cos(theta)]],dtype=np.float64)
+    return R</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.Ry"><code class="name flex">
+<span>def <span class="ident">Ry</span></span>(<span>theta: float) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns rotation matrix for a rotation about y axis by theta radians</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>theta</code></strong> :&ensp;<code>float</code></dt>
+<dd>angle in radians</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>R</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (3,3)</code></dt>
+<dd>Rotation Matrix</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def Ry(theta:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;Returns rotation matrix for a rotation about y axis by theta radians
+
+    Parameters
+    ----------
+    theta : float
+         angle in radians 
+
+    Returns
+    -------
+    R : numpy.ndarray of shape (3,3)
+         Rotation Matrix
+
+    &#34;&#34;&#34;
+    
+    R=np.array([[cos(theta),0,sin(theta)],
+                [0,1,0],
+                [-sin(theta),0,cos(theta)]],dtype=np.float64)
+    return R</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.Rz"><code class="name flex">
+<span>def <span class="ident">Rz</span></span>(<span>theta: float) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns rotation matrix for a rotation about z axis by theta radians</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>theta</code></strong> :&ensp;<code>float</code></dt>
+<dd>angle in radians</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>R</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (3,3)</code></dt>
+<dd>Rotation Matrix</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def Rz(theta:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;Returns rotation matrix for a rotation about z axis by theta radians
+
+    Parameters
+    ----------
+    theta : float
+         angle in radians 
+
+    Returns
+    -------
+    R : numpy.ndarray of shape (3,3)
+         Rotation Matrix
+
+    &#34;&#34;&#34;
+    
+    R=np.array([[cos(theta),-sin(theta),0],
+                [sin(theta),cos(theta),0],
+                [0,0,1]],dtype=np.float64)
+    return R</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.create_IM"><code class="name flex">
+<span>def <span class="ident">create_IM</span></span>(<span>link) ‑> Tuple[float, numpy.ndarray, numpy.ndarray]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the mass-inertia properties of the link from the Robot Description (URDF) loaded in the ROS parameter server
+returns a tuple of the form (m,COM,I)
+where m is the mass of the link
+COM is the coordinates of the Centre of Mass of the link in terms of the link frame
+I is the inertia tensor w.r.t the link frames</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>link</code></strong> :&ensp;<code>URDF.Link</code></dt>
+<dd>urdf.link object corresponding to the link whose mass-inertia properties need to be extracted</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>m</code></strong> :&ensp;<code>float</code></dt>
+<dd>Mass of the link</dd>
+<dt><strong><code>COM</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (3,)</code></dt>
+<dd>Coordinates of Centre of Mass of the links in terms of the link frame</dd>
+<dt><strong><code>I</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (3,3)</code></dt>
+<dd>Inertia Tensor in terms of the link frame</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_IM(link)-&gt;Tuple[float,np.ndarray,np.ndarray]:
+    &#34;&#34;&#34;Gets the mass-inertia properties of the link from the Robot Description (URDF) loaded in the ROS parameter server
+    returns a tuple of the form (m,COM,I)
+    where m is the mass of the link
+    COM is the coordinates of the Centre of Mass of the link in terms of the link frame
+    I is the inertia tensor w.r.t the link frames
+    
+    Parameters
+    ----------
+    link : URDF.Link
+         urdf.link object corresponding to the link whose mass-inertia properties need to be extracted
+
+    Returns
+    -------
+    m : float
+         Mass of the link
+    COM : numpy.ndarray of shape (3,)
+         Coordinates of Centre of Mass of the links in terms of the link frame
+    I : numpy.ndarray of shape (3,3)
+         Inertia Tensor in terms of the link frame
+
+    &#34;&#34;&#34;
+    
+    link=link[0]
+    ixx=link.inertial.inertia.ixx
+    ixy=link.inertial.inertia.ixy
+    ixz=link.inertial.inertia.ixz
+    iyy=link.inertial.inertia.iyy
+    iyz=link.inertial.inertia.iyz
+    izz=link.inertial.inertia.izz
+    I=np.array([[ixx,ixy,ixz],
+                [ixy,iyy,iyz],
+                [ixz,iyz,izz]],dtype=np.float64)
+    
+    m=link.inertial.mass
+    
+    COM=np.array(link.inertial.origin.xyz,dtype=np.float64)
+
+    COM=COM.reshape((3,1))
+
+    It1=m*np.matmul(COM.T,COM)*np.eye(3,dtype=np.float64)
+    It2=-m*np.matmul(COM,COM.T)
+
+    I=I+1*It1+1*It2
+    
+    return m,COM.flatten(),I</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.euler2omega_jacobian"><code class="name flex">
+<span>def <span class="ident">euler2omega_jacobian</span></span>(<span>alpha: float, beta: float, gamma: float) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>returns the 3x3 Jacobian Matrix for converting angular velocities to Euler Angle Rates for the ZYZ Euler Angles</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>alpha</code></strong> :&ensp;<code>float</code></dt>
+<dd>first angle in a ZYZ Euler Angle notation</dd>
+<dt><strong><code>beta</code></strong> :&ensp;<code>float</code></dt>
+<dd>second angle in a ZYZ Euler Angle notation</dd>
+<dt><strong><code>gamma</code></strong> :&ensp;<code>float</code></dt>
+<dd>third angle in a ZYZ Euler Angle notation</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>Te</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (3,3)</code></dt>
+<dd>3x3 Jacobian Matrix for converting angular velocities to Euler Angle Rates for the ZYZ Euler Angles</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def euler2omega_jacobian(alpha:float,beta:float,gamma:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;returns the 3x3 Jacobian Matrix for converting angular velocities to Euler Angle Rates for the ZYZ Euler Angles
+
+    Parameters
+    ----------
+    alpha : float
+         first angle in a ZYZ Euler Angle notation
+    beta : float
+         second angle in a ZYZ Euler Angle notation
+    gamma : float
+         third angle in a ZYZ Euler Angle notation
+
+    Returns
+    -------
+    Te : numpy.ndarray of shape (3,3)
+         3x3 Jacobian Matrix for converting angular velocities to Euler Angle Rates for the ZYZ Euler Angles
+
+    &#34;&#34;&#34;
+    
+    Te = np.array([[0, -sin(alpha), cos(alpha)*sin(beta)],
+                     [0, cos(alpha), sin(alpha)*sin(beta)],
+                     [1, 0, cos(beta)]])
+    return Te</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.geometric2analytic_jacobian"><code class="name flex">
+<span>def <span class="ident">geometric2analytic_jacobian</span></span>(<span>euler: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>returns the 6x6 matrix which needs to be post multiplied by the Geometric Jacobian
+for converting it into Analytical Jacobian for use with ZYZ Euler Angles</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>euler</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (3,1)</code></dt>
+<dd>array of euler angles</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>Ta_inv</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>6x6 matrix which needs to be post multiplied by the 6x6 Geometric Jacobian
+of a single side for converting it into Analytical Jacobian for use with ZYZ Euler Angles</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def geometric2analytic_jacobian(euler:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;returns the 6x6 matrix which needs to be post multiplied by the Geometric Jacobian 
+    for converting it into Analytical Jacobian for use with ZYZ Euler Angles
+
+    Parameters
+    ----------
+    euler : np.ndarray of shape (3,1)
+         array of euler angles
+
+    Returns
+    -------
+    Ta_inv : numpy.ndarray of shape (6,6)
+         6x6 matrix which needs to be post multiplied by the 6x6 Geometric Jacobian 
+        of a single side for converting it into Analytical Jacobian for use with ZYZ Euler Angles
+
+    &#34;&#34;&#34;
+    
+    alpha=euler[0,0]
+    beta=euler[1,0]
+    gamma=euler[2,0]
+    Te=euler2omega_jacobian(alpha,beta,gamma)
+    Te_inv=inv(Te)
+    Ta_inv=np.eye(6)
+    Ta_inv[0:3,0:3]=Te_inv
+    return Ta_inv</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.get_DH"><code class="name flex">
+<span>def <span class="ident">get_DH</span></span>(<span>joints: numpy.ndarray, joint_names: numpy.ndarray) ‑> Tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the DH parameters from the Robot Description (URDF) loaded in the ROS parameter server</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>joints</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>array of 12 URDF.Joint objects</dd>
+<dt><strong><code>joint_names</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>array of 12 Joint Names used to indicate the order in which the URDF.Joint objects exist in joints array</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>a : numpy.ndarray
+numpy array of shape (18,1) having the link length for links i=1 to 6
+alpha : numpy.ndarray
+numpy array of shape (18,1) having the link twist for links i=1 to 6
+d : numpy.ndarray
+numpy array of shape (18,1) having the joint offsets for joints i=1 to 6
+theta0 : numpy.ndarray
+numpy array of shape (18,1) having the nominal joint angle for joints i=1 to 6</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_DH(joints:np.ndarray,joint_names:np.ndarray)-&gt;Tuple[np.ndarray,np.ndarray,np.ndarray]:
+    &#34;&#34;&#34;Gets the DH parameters from the Robot Description (URDF) loaded in the ROS parameter server
+    
+    Parameters
+    ----------
+    joints : numpy.ndarray
+         array of 12 URDF.Joint objects
+    joint_names : numpy.ndarray
+         array of 12 Joint Names used to indicate the order in which the URDF.Joint objects exist in joints array
+
+    Returns
+    -------
+     a : numpy.ndarray
+         numpy array of shape (18,1) having the link length for links i=1 to 6
+     alpha : numpy.ndarray
+         numpy array of shape (18,1) having the link twist for links i=1 to 6
+     d : numpy.ndarray
+         numpy array of shape (18,1) having the joint offsets for joints i=1 to 6
+     theta0 : numpy.ndarray
+         numpy array of shape (18,1) having the nominal joint angle for joints i=1 to 6
+
+    &#34;&#34;&#34;
+    
+    a=np.zeros((18,1))
+    alpha=np.zeros((18,1))
+    d0=np.zeros((18,1))
+    theta0=np.zeros((18,1))
+    
+    for i in [8,9,11,12,14,15,17,18]:# for these joints we proceed normally
+        joint_name=&#34;j&#34;+str(i)
+        joint=joints[joint_names==joint_name][0]
+        #these are the xyz and rpy from the joint tag. You can derive the used formulas by equating 
+        #the transformation matrix from DH parameters with the transformation matrix from xyz-rpy
+        x=joint.origin.xyz[0]
+        y=joint.origin.xyz[1]
+        z=joint.origin.xyz[2]
+        roll=joint.origin.rpy[0]
+        pitch=joint.origin.rpy[1]
+        yaw=joint.origin.rpy[2]
+        a[i-2,0]=x
+        alpha[i-2,0]=-np.arctan2(cos(roll)*sin(pitch)*sin(yaw) - cos(yaw)*sin(roll),cos(pitch)*cos(roll))
+        alpha_=alpha[i-2,0]
+        if alpha_!=0:
+            d0[i-1,0]=-y/sin(alpha_)
+        else:
+            d0[i-1,0]=z/cos(alpha_)
+        theta0[i-1,0]=-np.arctan2(cos(yaw)*sin(pitch)*sin(roll) - cos(roll)*sin(yaw),cos(pitch)*cos(yaw))
+    
+    #for these joints we are hard coding since there is no physical joint corresponding to these
+    alpha[0:5,0]=[-pi/2,-pi/2,pi,-pi/2,pi/2]
+    a[[8,11,14,17],0]=0.22594935
+    d0[2,0]=0.25969851
+    theta0[0:6,0]=[-pi/2,-pi/2,0,pi/2,pi/2,pi]
+    
+    
+    return a,alpha,d0,theta0</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.get_cumulativeLF"><code class="name flex">
+<span>def <span class="ident">get_cumulativeLF</span></span>(<span>phis: numpy.ndarray, phi0_6: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns cumulative rigid body matrices phi_i_20 for i = 0,6,10,11,12</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>phis</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,6,6)</code></dt>
+<dd>3D stacked array of rigid body transformation matrices</dd>
+<dt><strong><code>phi0_6</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Rigid body transformation matrix from #0 to #6</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>cphis_lf</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (5,6,6)</code></dt>
+<dd>3D array of stacked cumulative rigid body matrices phi_i_20 for i = 0,6,10,11,12</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_cumulativeLF(phis:np.ndarray,phi0_6:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns cumulative rigid body matrices phi_i_20 for i = 0,6,10,11,12
+
+    Parameters
+    ----------
+    phis : np.ndarray of shape (18,6,6)
+        3D stacked array of rigid body transformation matrices
+    phi0_6 : np.ndarray of shape (6,6)
+        Rigid body transformation matrix from #0 to #6
+
+    Returns
+    -------
+    cphis_lf : np.ndarray of shape (5,6,6)
+        3D array of stacked cumulative rigid body matrices phi_i_20 for i = 0,6,10,11,12
+
+    &#34;&#34;&#34;
+    
+    cphis_lf=np.zeros((5,6,6))
+    cphis_lf[4,:,:]=phik_f
+    for i in [11,10,9]:
+        cphis_lf[i-8,:,:]=phis[i,:,:] @ cphis_lf[i-7,:,:]
+    cphis_lf[0,:,:]=phi0_6 @ cphis_lf[1,:,:]
+    return cphis_lf</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.get_cumulativeLH"><code class="name flex">
+<span>def <span class="ident">get_cumulativeLH</span></span>(<span>phis: numpy.ndarray, phi0_6: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns cumulative rigid body matrices phi_i_22 for i = 0,6,16,17,18</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>phis</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,6,6)</code></dt>
+<dd>3D stacked array of rigid body transformation matrices</dd>
+<dt><strong><code>phi0_6</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Rigid body transformation matrix from #0 to #6</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>cphis_lh</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (5,6,6)</code></dt>
+<dd>3D array of stacked cumulative rigid body matrices phi_i_22 for i = 0,6,16,17,18</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_cumulativeLH(phis:np.ndarray,phi0_6:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns cumulative rigid body matrices phi_i_22 for i = 0,6,16,17,18
+
+    Parameters
+    ----------
+    phis : np.ndarray of shape (18,6,6)
+        3D stacked array of rigid body transformation matrices
+    phi0_6 : np.ndarray of shape (6,6)
+        Rigid body transformation matrix from #0 to #6
+
+    Returns
+    -------
+    cphis_lh : np.ndarray of shape (5,6,6)
+        3D array of stacked cumulative rigid body matrices phi_i_22 for i = 0,6,16,17,18
+
+    &#34;&#34;&#34;
+    
+    cphis_lh=np.zeros((5,6,6))
+    cphis_lh[4,:,:]=phik_f
+    for i in [17,16,15]:
+        cphis_lh[i-14,:,:]=phis[i,:,:] @ cphis_lh[i-13,:,:]
+    cphis_lh[0,:,:]=phi0_6 @ cphis_lh[1,:,:]
+    return cphis_lh</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.get_cumulativeRF"><code class="name flex">
+<span>def <span class="ident">get_cumulativeRF</span></span>(<span>phis: numpy.ndarray, phi0_6: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns cumulative rigid body matrices phi_i_19 for i = 0,6,7,8,9</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>phis</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,6,6)</code></dt>
+<dd>3D stacked array of rigid body transformation matrices</dd>
+<dt><strong><code>phi0_6</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Rigid body transformation matrix from #0 to #6</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>cphis_rf</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (5,6,6)</code></dt>
+<dd>3D array of stacked cumulative rigid body matrices phi_i_19 for i = 0,6,7,8,9</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_cumulativeRF(phis:np.ndarray,phi0_6:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns cumulative rigid body matrices phi_i_19 for i = 0,6,7,8,9
+
+    Parameters
+    ----------
+    phis : np.ndarray of shape (18,6,6)
+        3D stacked array of rigid body transformation matrices
+    phi0_6 : np.ndarray of shape (6,6)
+        Rigid body transformation matrix from #0 to #6
+
+    Returns
+    -------
+    cphis_rf : np.ndarray of shape (5,6,6)
+        3D array of stacked cumulative rigid body matrices phi_i_19 for i = 0,6,7,8,9
+
+    &#34;&#34;&#34;
+    
+    cphis_rf=np.zeros((5,6,6))
+    cphis_rf[4,:,:]=phik_f
+    for i in [8,7,6]:
+        cphis_rf[i-5,:,:]=phis[i,:,:] @ cphis_rf[i-4,:,:]
+    cphis_rf[0,:,:]=phi0_6 @ cphis_rf[1,:,:]
+    return cphis_rf</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.get_cumulativeRH"><code class="name flex">
+<span>def <span class="ident">get_cumulativeRH</span></span>(<span>phis: numpy.ndarray, phi0_6: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns cumulative rigid body matrices phi_i_21 for i = 0,6,13,14,15</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>phis</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,6,6)</code></dt>
+<dd>3D stacked array of rigid body transformation matrices</dd>
+<dt><strong><code>phi0_6</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Rigid body transformation matrix from #0 to #6</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>cphis_rh</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (5,6,6)</code></dt>
+<dd>3D array of stacked cumulative rigid body matrices phi_i_21 for i = 0,6,13,14,15</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_cumulativeRH(phis:np.ndarray,phi0_6:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns cumulative rigid body matrices phi_i_21 for i = 0,6,13,14,15
+
+    Parameters
+    ----------
+    phis : np.ndarray of shape (18,6,6)
+        3D stacked array of rigid body transformation matrices
+    phi0_6 : np.ndarray of shape (6,6)
+        Rigid body transformation matrix from #0 to #6
+
+    Returns
+    -------
+    cphis_rh : np.ndarray of shape (5,6,6)
+        3D array of stacked cumulative rigid body matrices phi_i_21 for i = 0,6,13,14,15
+
+    &#34;&#34;&#34;
+    
+    cphis_rh=np.zeros((5,6,6))
+    cphis_rh[4,:,:]=phik_f
+    for i in [14,13,12]:
+        cphis_rh[i-11,:,:]=phis[i,:,:] @ cphis_rh[i-10,:,:]
+    cphis_rh[0,:,:]=phi0_6 @ cphis_rh[1,:,:]
+    return cphis_rh</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.get_cumulativeTC"><code class="name flex">
+<span>def <span class="ident">get_cumulativeTC</span></span>(<span>phis: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns cumulative rigid body matrices phi_i_6 for i = 0 to 5</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>phis</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,6,6)</code></dt>
+<dd>3D stacked array of rigid body transformation matrices</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>cphis_tc</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6,6)</code></dt>
+<dd>3D array of stacked cumulative rigid body matrices phi_i_6 for i = 0 to 5</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_cumulativeTC(phis:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns cumulative rigid body matrices phi_i_6 for i = 0 to 5
+
+    Parameters
+    ----------
+    phis : np.ndarray of shape (18,6,6)
+        3D stacked array of rigid body transformation matrices
+
+    Returns
+    -------
+    cphis_tc : np.ndarray of shape (6,6,6)
+        3D array of stacked cumulative rigid body matrices phi_i_6 for i = 0 to 5
+
+    &#34;&#34;&#34;
+    
+    cphis_tc=np.zeros((6,6,6))
+    cphis_tc[5,:,:]=phis[5,:,:]
+    for i in [4,3,2,1,0]:
+        cphis_tc[i,:,:]=phis[i,:,:] @ cphis_tc[i+1,:,:]
+    return cphis_tc</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.get_phi"><code class="name flex">
+<span>def <span class="ident">get_phi</span></span>(<span>alpha: numpy.ndarray, a: numpy.ndarray, d0: numpy.ndarray, theta0: numpy.ndarray, q: numpy.ndarray, a0: float, alpha0: float, l: float, b: float) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a 3D arrays of rigid body transformation matrixes for all 18 joints in the quadruped (inclusive virtual joints)</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>alpha</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,1)</code></dt>
+<dd>Array of DH parameter alpha</dd>
+<dt><strong><code>a</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,1)</code></dt>
+<dd>Array of DH parameter a</dd>
+<dt><strong><code>d0</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,1)</code></dt>
+<dd>Array of nominal joint offset</dd>
+<dt><strong><code>theta0</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,1)</code></dt>
+<dd>Array of nominal joint angle</dd>
+<dt><strong><code>q</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,1)</code></dt>
+<dd>Array of joint positions</dd>
+<dt><strong><code>a0</code></strong> :&ensp;<code>float</code></dt>
+<dd>link length between world frame and #1</dd>
+<dt><strong><code>alpha0</code></strong> :&ensp;<code>float</code></dt>
+<dd>link twist between world frame and #1</dd>
+<dt><strong><code>l</code></strong> :&ensp;<code>float</code></dt>
+<dd>torso length</dd>
+<dt><strong><code>b</code></strong> :&ensp;<code>float</code></dt>
+<dd>torso breadth</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>phis</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,6,6)</code></dt>
+<dd>3D array of stacked rigid body transformation matrices</dd>
+<dt><strong><code>phis_l</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,6,6)</code></dt>
+<dd>3D array of stacked link rigid body transformation matrices</dd>
+<dt><strong><code>phis_h</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (18,6,6)</code></dt>
+<dd>3D array of stacked hinge rigid body transformation matrices</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_phi(alpha:np.ndarray,a:np.ndarray,d0:np.ndarray,theta0:np.ndarray,q:np.ndarray,a0:float,alpha0:float,l:float,b:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns a 3D arrays of rigid body transformation matrixes for all 18 joints in the quadruped (inclusive virtual joints)
+
+    Parameters
+    ----------
+    alpha : np.ndarray of shape (18,1)
+        Array of DH parameter alpha
+    a : np.ndarray of shape (18,1)
+        Array of DH parameter a
+    d0 : np.ndarray of shape (18,1)
+        Array of nominal joint offset
+    theta0 : np.ndarray of shape (18,1)
+        Array of nominal joint angle
+    q : np.ndarray of shape (18,1)
+        Array of joint positions
+    a0 : float
+        link length between world frame and #1
+    alpha0 : float
+        link twist between world frame and #1
+    l : float
+        torso length
+    b : float
+        torso breadth
+
+    Returns
+    -------
+    phis : np.ndarray of shape (18,6,6)
+        3D array of stacked rigid body transformation matrices
+    phis_l : np.ndarray of shape (18,6,6)
+        3D array of stacked link rigid body transformation matrices
+    phis_h : np.ndarray of shape (18,6,6)
+        3D array of stacked hinge rigid body transformation matrices
+
+    &#34;&#34;&#34;
+    #initializing 3D arrays
+    phis_l=np.zeros((18,6,6))
+    phis_h=np.zeros((18,6,6))
+    
+    #between world and #1 (prismatic joint)
+    phis_l[0,:,:]=phi_link(d0[0,0]+q[0,0],a0,alpha0)
+    phis_h[0,:,:]=phi_hinge(theta0[0,0])
+    
+    #two prismatic virtual joints
+    for i in range(1,3):
+        phis_l[i,:,:]=phi_link(d0[i,0]+q[i,0],a[i-1,0],alpha[i-1,0])
+        phis_h[i,:,:]=phi_hinge(theta0[i,0])
+    
+    #three prismatic revolute joints
+    for i in range(3,6):
+        phis_l[i,:,:]=phi_link(d0[i,0],a[i-1,0],alpha[i-1,0])
+        phis_h[i,:,:]=phi_hinge(theta0[i,0]+q[i,0])
+    
+    #branching joints from l6 to its children
+    phis_l[6,:,:]=phi_link6_7(l,b)
+    phis_l[9,:,:]=phi_link6_10(l,b)
+    phis_l[12,:,:]=phi_link6_13(l,b)
+    phis_l[15,:,:]=phi_link6_16(l,b)
+    
+    for i in [6,9,12,15]:
+        phis_h[i,:,:]=phi_hinge(theta0[i,0]+q[i,0])
+    
+    #leg joints
+    for i in [7,8,10,11,13,14,16,17]:
+        phis_l[i,:,:]=phi_link(d0[i,0],a[i-1,0],alpha[i-1,0])
+        phis_h[i,:,:]=phi_hinge(theta0[i,0]+q[i,0])
+
+    phis=phis_l@phis_h
+    return phis,phis_l,phis_h</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.getlb"><code class="name flex">
+<span>def <span class="ident">getlb</span></span>(<span>joints: numpy.ndarray, joint_names: numpy.ndarray) ‑> Tuple[float, float]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the length and breadth of the torso link</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>joints</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>array of 6 URDF.Joint objects</dd>
+<dt><strong><code>joint_names</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>array of 6 Joint Names used to indicate the order in which the URDF.Joint objects exist in joints array</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Tuple[float,float]</code></dt>
+<dd>Tuple of length and breadth of the torso link</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getlb(joints:np.ndarray,joint_names:np.ndarray)-&gt;Tuple[float,float]:
+    &#34;&#34;&#34;
+    Returns the length and breadth of the torso link
+
+    Parameters
+    ----------
+    joints : numpy.ndarray
+         array of 6 URDF.Joint objects
+    joint_names : numpy.ndarray
+         array of 6 Joint Names used to indicate the order in which the URDF.Joint objects exist in joints array
+
+    Returns
+    -------
+    Tuple[float,float]
+        Tuple of length and breadth of the torso link
+
+    &#34;&#34;&#34;
+    joint_name=&#34;j7&#34;
+    joint=joints[joint_names==joint_name][0]
+    l=2*joint.origin.xyz[1]
+    b=2*joint.origin.xyz[2]
+    return l,b</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.inv_tilda"><code class="name flex">
+<span>def <span class="ident">inv_tilda</span></span>(<span>til: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Inverse function of the tilda function</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>til</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (3,3)</code></dt>
+<dd>3x3 skew-symmetric matix corresponding to the cross-product operation</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>p</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (3,1)</code></dt>
+<dd>3x1 vector corresponding to the input skew-symmetric matrix</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def inv_tilda(til:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;Inverse function of the tilda function
+
+    Parameters
+    ----------
+    til : numpy.ndarray of shape (3,3)
+         3x3 skew-symmetric matix corresponding to the cross-product operation
+
+    Returns
+    -------
+    p : numpy.ndarray of shape (3,1)
+         3x1 vector corresponding to the input skew-symmetric matrix
+
+    &#34;&#34;&#34;
+    
+    p=np.zeros((3,1),dtype=np.float64)
+    p[0]=-til[1,2]
+    p[1]=til[0,2]
+    p[2]=-til[0,1]
+    return p</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.phi_hinge"><code class="name flex">
+<span>def <span class="ident">phi_hinge</span></span>(<span>theta: float) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns Rigid body transformation matrix corresponding to DH parameter theta</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>theta</code></strong> :&ensp;<code>float</code></dt>
+<dd>DH parameter theta (joint angle in radians)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>phi_h</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Rigid Body Transformation Matrix</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def phi_hinge(theta:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;Returns Rigid body transformation matrix corresponding to DH parameter theta
+
+    Parameters
+    ----------
+    theta : float
+         DH parameter theta (joint angle in radians)
+
+    Returns
+    -------
+    phi_h : numpy.ndarray of shape (6,6)
+         Rigid Body Transformation Matrix
+
+    &#34;&#34;&#34;
+    
+    R=Rz(theta)
+    phi_h=np.zeros((6,6),dtype=np.float64)
+    phi_h[0:3,0:3]=R
+    phi_h[3:6,3:6]=R
+    return phi_h</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.phi_link"><code class="name flex">
+<span>def <span class="ident">phi_link</span></span>(<span>d: float, a: float, alpha: float) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns Rigid body transformation matrix corresponding to DH parameters d,a and alpha</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>d</code></strong> :&ensp;<code>float</code></dt>
+<dd>DH parameter d (joint offset in metres)</dd>
+<dt><strong><code>a</code></strong> :&ensp;<code>float</code></dt>
+<dd>DH parameter a (link length in metres)</dd>
+<dt><strong><code>alpha</code></strong> :&ensp;<code>float</code></dt>
+<dd>DH parameter alpha (link twist in radians)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>phi_l</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Rigid Body Transformation Matrix</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def phi_link(d:float,a:float,alpha:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;Returns Rigid body transformation matrix corresponding to DH parameters d,a and alpha
+
+    Parameters
+    ----------
+    d : float
+         DH parameter d (joint offset in metres)
+    a : float
+         DH parameter a (link length in metres)
+    alpha : float
+         DH parameter alpha (link twist in radians)
+
+    Returns
+    -------
+    phi_l : numpy.ndarray of shape (6,6)
+         Rigid Body Transformation Matrix
+
+    &#34;&#34;&#34;
+    
+    R=Rx(alpha)
+    l=[a,-d*sin(alpha),d*cos(alpha)]
+    l_tilda=tilda(l)
+    phi_l=np.zeros((6,6),dtype=np.float64)
+    phi_l[0:3,0:3]=R
+    phi_l[0:3,3:6]=np.matmul(l_tilda,R)
+    phi_l[3:6,3:6]=R
+    return phi_l</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.phi_link6_10"><code class="name flex">
+<span>def <span class="ident">phi_link6_10</span></span>(<span>l: float, b: float) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns link rigid body transformation matrix between #6 and #10^-</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>l</code></strong> :&ensp;<code>float</code></dt>
+<dd>Torso length.</dd>
+<dt><strong><code>b</code></strong> :&ensp;<code>float</code></dt>
+<dd>torso breadth.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>phi_l</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Link rigid body transformation matrix between #6 and #10^-.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def phi_link6_10(l:float,b:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns link rigid body transformation matrix between #6 and #10^-
+
+    Parameters
+    ----------
+    l : float
+        Torso length.
+    b : float
+        torso breadth.
+
+    Returns
+    -------
+    phi_l : np.ndarray of shape (6,6)
+        Link rigid body transformation matrix between #6 and #10^-.
+
+    &#34;&#34;&#34;
+    l=np.array([[0,l/2,-b/2]]).T
+    R=Rx(-pi/2)
+    phi_l=np.zeros((6,6))
+    phi_l[0:3,0:3]=phi_l[3:6,3:6]=R
+    phi_l[0:3,3:6]=tilda(l) @ R
+    return phi_l</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.phi_link6_13"><code class="name flex">
+<span>def <span class="ident">phi_link6_13</span></span>(<span>l: float, b: float) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns link rigid body transformation matrix between #6 and #13^-</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>l</code></strong> :&ensp;<code>float</code></dt>
+<dd>Torso length.</dd>
+<dt><strong><code>b</code></strong> :&ensp;<code>float</code></dt>
+<dd>torso breadth.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>phi_l</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Link rigid body transformation matrix between #6 and #13^-.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def phi_link6_13(l:float,b:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns link rigid body transformation matrix between #6 and #13^-
+
+    Parameters
+    ----------
+    l : float
+        Torso length.
+    b : float
+        torso breadth.
+
+    Returns
+    -------
+    phi_l : np.ndarray of shape (6,6)
+        Link rigid body transformation matrix between #6 and #13^-.
+
+    &#34;&#34;&#34;
+    l=np.array([[0,-l/2,b/2]]).T
+    R=Rx(pi/2)
+    phi_l=np.zeros((6,6))
+    phi_l[0:3,0:3]=phi_l[3:6,3:6]=R
+    phi_l[0:3,3:6]=tilda(l) @ R
+    return phi_l</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.phi_link6_16"><code class="name flex">
+<span>def <span class="ident">phi_link6_16</span></span>(<span>l: float, b: float) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns link rigid body transformation matrix between #6 and #16^-</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>l</code></strong> :&ensp;<code>float</code></dt>
+<dd>Torso length.</dd>
+<dt><strong><code>b</code></strong> :&ensp;<code>float</code></dt>
+<dd>torso breadth.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>phi_l</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Link rigid body transformation matrix between #6 and #16^-.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def phi_link6_16(l:float,b:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns link rigid body transformation matrix between #6 and #16^-
+
+    Parameters
+    ----------
+    l : float
+        Torso length.
+    b : float
+        torso breadth.
+
+    Returns
+    -------
+    phi_l : np.ndarray of shape (6,6)
+        Link rigid body transformation matrix between #6 and #16^-.
+
+    &#34;&#34;&#34;
+    l=np.array([[0,-l/2,-b/2]]).T
+    R=Rx(-pi/2)
+    phi_l=np.zeros((6,6))
+    phi_l[0:3,0:3]=phi_l[3:6,3:6]=R
+    phi_l[0:3,3:6]=tilda(l) @ R
+    return phi_l</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.phi_link6_7"><code class="name flex">
+<span>def <span class="ident">phi_link6_7</span></span>(<span>l: float, b: float) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns link rigid body transformation matrix between #6 and #7^-</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>l</code></strong> :&ensp;<code>float</code></dt>
+<dd>Torso length.</dd>
+<dt><strong><code>b</code></strong> :&ensp;<code>float</code></dt>
+<dd>torso breadth.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>phi_l</code></strong> :&ensp;<code>np.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>Link rigid body transformation matrix between #6 and #7^-.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def phi_link6_7(l:float,b:float)-&gt;np.ndarray:
+    &#34;&#34;&#34;
+    Returns link rigid body transformation matrix between #6 and #7^-
+
+    Parameters
+    ----------
+    l : float
+        Torso length.
+    b : float
+        torso breadth.
+
+    Returns
+    -------
+    phi_l : np.ndarray of shape (6,6)
+        Link rigid body transformation matrix between #6 and #7^-.
+
+    &#34;&#34;&#34;
+    l=np.array([[0,l/2,b/2]]).T
+    R=Rx(pi/2)
+    phi_l=np.zeros((6,6))
+    phi_l[0:3,0:3]=phi_l[3:6,3:6]=R
+    phi_l[0:3,3:6]=tilda(l) @ R
+    return phi_l</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.pos_from_phi"><code class="name flex">
+<span>def <span class="ident">pos_from_phi</span></span>(<span>phi: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>returns the position coordinates from a rigid body transformation matrix</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>phi</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>rigid body transformation matrix</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>pos</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>numpy array of shape (3,1) which is the position coordinates from phi</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pos_from_phi(phi:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;returns the position coordinates from a rigid body transformation matrix
+
+    Parameters
+    ----------
+    phi : numpy.ndarray of shape (6,6)
+         rigid body transformation matrix
+
+    Returns
+    -------
+    pos : numpy.ndarray
+         numpy array of shape (3,1) which is the position coordinates from phi
+
+    &#34;&#34;&#34;
+    
+    pos=inv_tilda(np.matmul(phi[0:3,3:6],phi[0:3,0:3].T))
+    return pos</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.tilda"><code class="name flex">
+<span>def <span class="ident">tilda</span></span>(<span>p: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the 3x3 skew-symmetric matix corresponding to the cross-product
+operation for a given 3x1 vector.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>p</code></strong> :&ensp;<code>list</code> or <code>numpy.ndarray</code> of <code>shape (3,)</code></dt>
+<dd>3x1 input vector</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>til</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (3,3)</code></dt>
+<dd>3x3 skew-symmetric matix corresponding to the cross-product operation</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tilda(p:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;Returns the 3x3 skew-symmetric matix corresponding to the cross-product
+    operation for a given 3x1 vector.
+
+    Parameters
+    ----------
+    p : list or numpy.ndarray of shape (3,)
+         3x1 input vector
+
+    Returns
+    -------
+    til : numpy.ndarray of shape (3,3)
+         3x3 skew-symmetric matix corresponding to the cross-product operation
+
+    &#34;&#34;&#34;
+    
+    til=np.array([[0,-p[2],p[1]],[p[2],0,-p[0]],[-p[1],p[0],0]],dtype=np.float64)
+    return til</code></pre>
+</details>
+</dd>
+<dt id="src.control_func.tilda6"><code class="name flex">
+<span>def <span class="ident">tilda6</span></span>(<span>P: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tilda operation used in Spatial Vector Algebra.</p>
+<h2 id="parameters">Parameters</h2>
+<p>P : list or numpy.ndarray of shape (6,)
+Input spatial vector</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>til</code></strong> :&ensp;<code>numpy.ndarray</code> of <code>shape (6,6)</code></dt>
+<dd>6x6 matrix corresponding to tilda operation on P</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tilda6(P:np.ndarray)-&gt;np.ndarray:
+    &#34;&#34;&#34;Tilda operation used in Spatial Vector Algebra.
+
+    Parameters
+    ---------- 
+    P : list or numpy.ndarray of shape (6,)
+         Input spatial vector
+
+    Returns
+    -------
+    til : numpy.ndarray of shape (6,6)
+         6x6 matrix corresponding to tilda operation on P
+    &#34;&#34;&#34;
+    
+    x=P[0:3]
+    y=P[3:6]
+    x_tilda=tilda(x)
+    y_tilda=tilda(y)
+    til=np.zeros((6,6),dtype=np.float64)
+    til[0:3,0:3]=x_tilda
+    til[3:6,3:6]=x_tilda
+    til[3:6,0:3]=y_tilda
+    return til</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src" href="index.html">src</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="two-column">
+<li><code><a title="src.control_func.COMs" href="#src.control_func.COMs">COMs</a></code></li>
+<li><code><a title="src.control_func.Hp" href="#src.control_func.Hp">Hp</a></code></li>
+<li><code><a title="src.control_func.Hr" href="#src.control_func.Hr">Hr</a></code></li>
+<li><code><a title="src.control_func.IMs" href="#src.control_func.IMs">IMs</a></code></li>
+<li><code><a title="src.control_func.I_lf" href="#src.control_func.I_lf">I_lf</a></code></li>
+<li><code><a title="src.control_func.I_lh" href="#src.control_func.I_lh">I_lh</a></code></li>
+<li><code><a title="src.control_func.I_rf" href="#src.control_func.I_rf">I_rf</a></code></li>
+<li><code><a title="src.control_func.I_rh" href="#src.control_func.I_rh">I_rh</a></code></li>
+<li><code><a title="src.control_func.I_tc" href="#src.control_func.I_tc">I_tc</a></code></li>
+<li><code><a title="src.control_func.a" href="#src.control_func.a">a</a></code></li>
+<li><code><a title="src.control_func.a0" href="#src.control_func.a0">a0</a></code></li>
+<li><code><a title="src.control_func.alpha" href="#src.control_func.alpha">alpha</a></code></li>
+<li><code><a title="src.control_func.alpha0" href="#src.control_func.alpha0">alpha0</a></code></li>
+<li><code><a title="src.control_func.b" href="#src.control_func.b">b</a></code></li>
+<li><code><a title="src.control_func.d0" href="#src.control_func.d0">d0</a></code></li>
+<li><code><a title="src.control_func.l" href="#src.control_func.l">l</a></code></li>
+<li><code><a title="src.control_func.m" href="#src.control_func.m">m</a></code></li>
+<li><code><a title="src.control_func.phik_f" href="#src.control_func.phik_f">phik_f</a></code></li>
+<li><code><a title="src.control_func.theta0" href="#src.control_func.theta0">theta0</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="src.control_func.J_LF" href="#src.control_func.J_LF">J_LF</a></code></li>
+<li><code><a title="src.control_func.J_LH" href="#src.control_func.J_LH">J_LH</a></code></li>
+<li><code><a title="src.control_func.J_RF" href="#src.control_func.J_RF">J_RF</a></code></li>
+<li><code><a title="src.control_func.J_RH" href="#src.control_func.J_RH">J_RH</a></code></li>
+<li><code><a title="src.control_func.J_TC" href="#src.control_func.J_TC">J_TC</a></code></li>
+<li><code><a title="src.control_func.Rx" href="#src.control_func.Rx">Rx</a></code></li>
+<li><code><a title="src.control_func.Ry" href="#src.control_func.Ry">Ry</a></code></li>
+<li><code><a title="src.control_func.Rz" href="#src.control_func.Rz">Rz</a></code></li>
+<li><code><a title="src.control_func.create_IM" href="#src.control_func.create_IM">create_IM</a></code></li>
+<li><code><a title="src.control_func.euler2omega_jacobian" href="#src.control_func.euler2omega_jacobian">euler2omega_jacobian</a></code></li>
+<li><code><a title="src.control_func.geometric2analytic_jacobian" href="#src.control_func.geometric2analytic_jacobian">geometric2analytic_jacobian</a></code></li>
+<li><code><a title="src.control_func.get_DH" href="#src.control_func.get_DH">get_DH</a></code></li>
+<li><code><a title="src.control_func.get_cumulativeLF" href="#src.control_func.get_cumulativeLF">get_cumulativeLF</a></code></li>
+<li><code><a title="src.control_func.get_cumulativeLH" href="#src.control_func.get_cumulativeLH">get_cumulativeLH</a></code></li>
+<li><code><a title="src.control_func.get_cumulativeRF" href="#src.control_func.get_cumulativeRF">get_cumulativeRF</a></code></li>
+<li><code><a title="src.control_func.get_cumulativeRH" href="#src.control_func.get_cumulativeRH">get_cumulativeRH</a></code></li>
+<li><code><a title="src.control_func.get_cumulativeTC" href="#src.control_func.get_cumulativeTC">get_cumulativeTC</a></code></li>
+<li><code><a title="src.control_func.get_phi" href="#src.control_func.get_phi">get_phi</a></code></li>
+<li><code><a title="src.control_func.getlb" href="#src.control_func.getlb">getlb</a></code></li>
+<li><code><a title="src.control_func.inv_tilda" href="#src.control_func.inv_tilda">inv_tilda</a></code></li>
+<li><code><a title="src.control_func.phi_hinge" href="#src.control_func.phi_hinge">phi_hinge</a></code></li>
+<li><code><a title="src.control_func.phi_link" href="#src.control_func.phi_link">phi_link</a></code></li>
+<li><code><a title="src.control_func.phi_link6_10" href="#src.control_func.phi_link6_10">phi_link6_10</a></code></li>
+<li><code><a title="src.control_func.phi_link6_13" href="#src.control_func.phi_link6_13">phi_link6_13</a></code></li>
+<li><code><a title="src.control_func.phi_link6_16" href="#src.control_func.phi_link6_16">phi_link6_16</a></code></li>
+<li><code><a title="src.control_func.phi_link6_7" href="#src.control_func.phi_link6_7">phi_link6_7</a></code></li>
+<li><code><a title="src.control_func.pos_from_phi" href="#src.control_func.pos_from_phi">pos_from_phi</a></code></li>
+<li><code><a title="src.control_func.tilda" href="#src.control_func.tilda">tilda</a></code></li>
+<li><code><a title="src.control_func.tilda6" href="#src.control_func.tilda6">tilda6</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
